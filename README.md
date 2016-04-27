@@ -5,17 +5,10 @@
 # Tim's Quick Install Guide
 
 ```sh
-# git clone git@github.com:timgws/handy-nginx-includes.git /etc/nginx/templates
-# ln -s /etc/nginx/templates/site-config /etc/nginx/site-config
+# clone this reporitory to /etc/nginx/templates
+git clone git@github.com:timgws/handy-nginx-includes.git /etc/nginx/templates
+ln -s /etc/nginx/templates/site-config /etc/nginx/site-config
 ```
-
-# Using the SSL template
-
-There is a template provided in `vhost-template/website.conf`. I recommend that this template is copied with the required vhost name into `/etc/nginx/conf.d`.
-
-For example, when setting up `newdomain.com`, copy `vhost-template/website.conf` as `/etc/nginx/conf.d/newdomain.com.conf`.
-
-Edit the newly created file and ensure that the settings are all correct
 
 # 'Modular Includes'
 
@@ -26,6 +19,14 @@ Inside the `site-includes` folder there is a bunch of files that have pre-rolled
 * `laravel.conf`: a simple laravel config file
 * `log-me-not.conf`: don't log images in the access log
 * `ssl.conf`: enable ssl
+
+# Using the SSL template
+
+There is a template provided in `vhost-template/website.conf`. I recommend that this template is copied with the required vhost name into `/etc/nginx/conf.d`.
+
+For example, when setting up `newdomain.com`, copy `vhost-template/website.conf` as `/etc/nginx/conf.d/newdomain.com.conf`.
+
+Edit the newly created file and ensure that the settings are all correct
 
 # Setting up SSL for a domain
 ## Step One
