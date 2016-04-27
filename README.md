@@ -2,6 +2,8 @@
 
 **Please Note:** This has only been tested on RHEL6/RHEL7 with EPEL & provided nginx. YMMV.
 
+**TL;DR:** Check out the [Website Config File](https://github.com/timgws/handy-nginx-includes/blob/master/vhost-template/website.conf)
+
 # Tim's Quick Install Guide
 
 ```sh
