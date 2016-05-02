@@ -41,14 +41,24 @@ openssl dhparam -out dhparam.pem 4096
 ## Step Two
 Create an SSL certificate
 
-```
+```sh
 cd /etc/nginx/ssl/
 openssl req -config ../templates/openssl/ssl.conf -new -nodes -keyout domainname.com.key -out domainname.com.csr
+
+# output the CSR and send to the certificate provider
+cat domainname.com.csr
+
+# or, on a mac, to automatically copy the contents into your clipboard
+cat domainname.com.csr | pbcopy
 ```
 
 Give the CSR to your given SSL provider (mine is Geotrust with Namecheap or ENOM). Once you have the certificate, save it.
 
-```
+```sh
+# on a mac
+pbpaste > /etc/nginx/ssl/domainname.com.crt
+
+# on Linux
 cat > /etc/nginx/ssl/domainname.com.crt
 
 {paste certificate from email/web interface}
