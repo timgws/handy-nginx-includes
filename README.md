@@ -30,15 +30,17 @@ For example, when setting up `newdomain.com`, copy `vhost-template/website.conf`
 
 Edit the newly created file and ensure that the settings are all correct
 
-# Setting up SSL for a domain
-## Step One
-Generate a dhparams file (avoid Logjam - https://weakdh.org/sysadmin.html)
+## quick note about dhparams
+To avoid Logjam (https://weakdh.org/sysadmin.html) you want to ensure that on each server before you use SSL for the first time that you generate a dhparams file.
+
 ```sh
 mkdir /etc/ssl/certs && cd /etc/ssl/certs
 openssl dhparam -out dhparam.pem 4096
 ```
 
-## Step Two
+# Setting up SSL for a domain
+
+## Creating the Certificate Signing Request (CSR)
 Create an SSL certificate. Use the SSL template to ensure you can't skip required names (like the email address or hostname field).
 
 ```sh
@@ -52,7 +54,11 @@ cat domainname.com.csr
 cat domainname.com.csr | pbcopy
 ```
 
+## Order an SSL certificate
+
 After ordering an SSL certificate with your favourite SSL provider (I normally order Geotrust $10 certificates from either enom or Namecheap), paste the above generated CSR when asked by your certificate wholesaler. Ensure that you can send an email to one of the listed email addresses.
+
+## Save the certificate
 
 Confirm your email address, then save the certificate once you recieve it.
 
