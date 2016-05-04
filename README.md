@@ -1,10 +1,10 @@
-# Quick and easy nginx includes
+# Tim's Quick and Easy nginx includes
 
 **Please Note:** This has only been tested on RHEL6/RHEL7 with EPEL & provided nginx. YMMV.
 
 **TL;DR:** Check out the [Website Config File](https://github.com/timgws/handy-nginx-includes/blob/master/vhost-template/website.conf)
 
-# Tim's Quick Install Guide
+# Quick Install Guide
 
 ```sh
 # clone this reporitory to /etc/nginx/templates
@@ -25,7 +25,7 @@ Inside the `site-includes` folder there is a bunch of files that have pre-rolled
 * `gzip.conf`: enable gzip compression for common formats
 * `laravel.conf`: a simple laravel config file
 * `log-me-not.conf`: don't log images in the access log
-* `ssl.conf`: enable ssl
+* `ssl.conf`: enable ssl, test with Qualys SSL Labs (https://www.ssllabs.com/ssltest/) which provides a comprehensive SSL testing suite. Config should give you a green A+.
 
 # Using the SSL template
 
@@ -36,16 +36,20 @@ For example, when setting up `newdomain.com`, copy `vhost-template/website.conf`
 Edit the newly created file and ensure that the settings are all correct
 
 ## quick note about dhparams
-To avoid Logjam (https://weakdh.org/sysadmin.html) you want to ensure that on each server before you use SSL for the first time that you generate a dhparams file.
+
+To avoid Logjam (https://weakdh.org/sysadmin.html) you want to ensure that before you use SSL for the first time on a server that you generate an unique `dhparam` file.
 
 ```sh
 mkdir /etc/ssl/certs && cd /etc/ssl/certs
 openssl dhparam -out dhparam.pem 4096
 ```
 
+If you don't do this, the SSL templates will not work for you.
+
 # Setting up SSL for a domain
 
 ## Creating the Certificate Signing Request (CSR)
+
 Create an SSL certificate. Use the SSL template to ensure you can't skip required names (like the email address or hostname field).
 
 ```sh
