@@ -12,6 +12,11 @@ git clone git@github.com:timgws/handy-nginx-includes.git /etc/nginx/templates
 ln -s /etc/nginx/templates/site-config /etc/nginx/site-config
 ```
 
+# Included Templates
+
+* **[website.conf](https://github.com/timgws/handy-nginx-includes/blob/master/vhost-template/website.conf)**: A generic vhost domain. Has www and non-www support. Logs access to a seperate log file. Has easy to enable SSL support. Comment out the sections that you don't want or need.
+* **[reverse-proxy.conf](https://github.com/timgws/handy-nginx-includes/blob/master/vhost-template/reverse-proxy.conf)**: A generic reverse proxy. Awesome for when you want to migrate servers. Has a block in there for serving files that exist in the root locally. Unfound files will be served by the reverse proxy.
+
 # 'Modular Includes'
 
 Inside the `site-includes` folder there is a bunch of files that have pre-rolled setting:
