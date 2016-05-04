@@ -39,7 +39,7 @@ openssl dhparam -out dhparam.pem 4096
 ```
 
 ## Step Two
-Create an SSL certificate
+Create an SSL certificate. Use the SSL template to ensure you can't skip required names (like the email address or hostname field).
 
 ```sh
 cd /etc/nginx/ssl/
@@ -52,7 +52,9 @@ cat domainname.com.csr
 cat domainname.com.csr | pbcopy
 ```
 
-Give the CSR to your given SSL provider (mine is Geotrust with Namecheap or ENOM). Once you have the certificate, save it.
+After ordering an SSL certificate with your favourite SSL provider (I normally order Geotrust $10 certificates from either enom or Namecheap), paste the above generated CSR when asked by your certificate wholesaler. Ensure that you can send an email to one of the listed email addresses.
+
+Confirm your email address, then save the certificate once you recieve it.
 
 ```sh
 # on a mac
