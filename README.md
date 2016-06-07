@@ -9,7 +9,7 @@
 ```sh
 # clone this reporitory to /etc/nginx/templates
 git clone git@github.com:timgws/handy-nginx-includes.git /etc/nginx/templates
-ln -s /etc/nginx/templates/site-config /etc/nginx/site-config
+ln -s /etc/nginx/templates/site-includes /etc/nginx/site-config
 ```
 
 # Included Templates
